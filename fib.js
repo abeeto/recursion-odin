@@ -8,12 +8,12 @@ const fibs = function (n) {
 };
 console.log(fibs(8));
 
-const fibsRec = function (index, fibArr = [0, 1]) {
-  if (fibArr[index - 1]) {
-    fibArr[index] = fibArr[index - 1] + fibArr[n - 2];
-    return fibArr[index];
+const fibsRec = function (n, index = 2, fibArr = [0, 1]) {
+  if (index === n) {
+    return fibArr;
   }
-  return fibs(index, fibArr);
+  fibArr[index] = fibArr[index - 1] + fibArr[index - 2];
+  return fibsRec(n, index + 1, fibArr);
 };
 
-console.log(fibsRec(20));
+console.log(fibsRec(8));
